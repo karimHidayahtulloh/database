@@ -15,6 +15,8 @@ import javax.swing.JOptionPane;
 
 public class Main extends javax.swing.JFrame {
 
+    public static int statusKlik = 0;
+
     public Main() {
         initComponents();
 //        setLocationRelativeTo(null);
@@ -139,10 +141,10 @@ public class Main extends javax.swing.JFrame {
     private void keluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_keluarActionPerformed
         int inginKeluar;// 0 = (YES) exit ke main menu , 1 = (NO)tidak jadi //default netbeansnya
         inginKeluar = JOptionPane.showConfirmDialog(this, "Anda yakin ingin mengakhiri permainan?", "Konfirmasi Kembali", 0);
-        
+
         if (inginKeluar == 0) //kalo bener mau keluar, skoring muncul (masukkanSkor)
         {
-          System.exit(0);  
+            System.exit(0);
         } else {
             int kembali = 0;
 //            this.dispose();
@@ -174,6 +176,7 @@ public class Main extends javax.swing.JFrame {
     private void pengaturanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pengaturanActionPerformed
         this.dispose();
         new pengaturan().setVisible(true);
+        statusKlik++;
     }//GEN-LAST:event_pengaturanActionPerformed
 
     public static void main(String args[]) {

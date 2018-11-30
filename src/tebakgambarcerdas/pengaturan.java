@@ -20,11 +20,14 @@ import javax.swing.JOptionPane;
  */
 public class pengaturan extends javax.swing.JFrame {
 
+    public static int statusKlik = pengaturan.statusKlik;
+
     public pengaturan() {
         initComponents();
-        setLocationRelativeTo(null);
         playing();
-        Controller(true);
+        if (statusKlik == 1) {
+            Controller(true);
+        }
     }
 
     Clip karim;

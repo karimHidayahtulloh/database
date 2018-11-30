@@ -9,8 +9,11 @@ import java.io.FileWriter;
 import java.io.IOException; //otomatis - errorModule
 import java.sql.SQLException;
 import java.text.ParseException;
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.logging.Level; //otomatis - errorModule
 import java.util.logging.Logger; //otomatis - errorModule
+import javax.annotation.Generated;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -22,12 +25,14 @@ public class MulaiGame extends javax.swing.JFrame {
 //    data_base model;
     boolean jawabanmu; //untuk kondisi jawaban yg diklik nanti dibandingkan dengan kondisi yg benar
     int level = 1;
-    int waktu = 20;
+    int cekIndex;
+    int waktu = 3, counRandom = 1;
     int nilai = 0;
     JButton listJawaban[];
     String nama = null;
     int indeksSoal;
     Timer timer = new Timer(750, new Listener());
+    int[] solutionArray = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20};
 
     //-- -----------------------------------------------------------
     //-- ----           deklarasi soal dan jawaban              ----
@@ -51,36 +56,38 @@ public class MulaiGame extends javax.swing.JFrame {
         "src/tebakgambarcerdas/ui/17.jpg",
         "src/tebakgambarcerdas/ui/18.jpg",
         "src/tebakgambarcerdas/ui/19.jpg",
-        "src/tebakgambarcerdas/ui/20.jpg"};
+        "src/tebakgambarcerdas/ui/20.jpg",
+        "src/tebakgambarcerdas/ui/DSC_0308.jpg"};
+
     public String[] jawabanA = {"A. Cut Nyak Dhien", "A. Soeharto", "A. R. Dewi Sartika", "A. H.O.S. Cokroaminoto ", "A. Fatmawati",
         "A. Jendral Soedirman", "A. R. A. Kartini", "A. Sutan Syahrir", "A. R. Dewi Sartika", "A. Pattimura",
         "A. Moh. Yamin", "A. Pattimura", "A. Ir. Soekarno", "A. Pangeran Antasari", "A. Sultan Ali Mughayat Syah",
-        "A. I Gusti Ngurah Rai","A. Pattimura", "A. Teuku Umar", "A. Ir. Soekarno", "A. Sutan Syahrir"};
+        "A. I Gusti Ngurah Rai", "A. Pattimura", "A. Teuku Umar", "A. Ir. Soekarno", "A. Sutan Syahrir", "tahu"};
     public String[] jawabanB = {"B. R.A Kartini", "B. Ir. Soekarno", "B. R.A Kartini", "B. Abdul Muis", "B. Cut Nyak Meutia",
         "B. Bung Tomo", "B. Cut Nyak Dhien", "B. Tuanku Imam Bonjol", "B. Dewi Ratna", "B. Tuanku Imam Bonjol",
         "B. Pangeran Diponegoro", "B. Pangeran Diponegoro", "B. Jendral Soedirman", "B. Dewi Ratna", "B.  Sultan  Hasanuddin",
-        "B. I Gusti Bagus Saputra", "B. Sultan Iskandar Muda", "B. Jendral Soedirman", "B. Jendral Soedirman", "B. Jendral Soedirman"};
+        "B. I Gusti Bagus Saputra", "B. Sultan Iskandar Muda", "B. Jendral Soedirman", "B. Jendral Soedirman", "B. Jendral Soedirman", "tempe"};
     public String[] jawabanC = {"C. Fatmawati", "C. Drs. Moh. Hatta", "C. Cut Nyak Dhien", "C. KI Hajar Dewantoro", "C. Cut Nyak Dhien",
         "C. Drs. Moh. Hatta", "C. Cut Nyak Meutia ", "C. Drs. Moh. Hatta", "C. R. A. Kartini", "C. Moh. Yamin",
         "C. Pattimura", "C. Pangeran Antasari", "C. Sultan Hamengkubuwono", "C. Pangeran Diponegoro", "C. Ir. Soekarno",
-        "C. Gusti Ngurah Agung", "C. Drs. Moh. Hatta","C. Sultan Hamengkubuwono", "C. Pangeran Diponegoro","C. Pattimura"};
+        "C. Gusti Ngurah Agung", "C. Drs. Moh. Hatta", "C. Sultan Hamengkubuwono", "C. Pangeran Diponegoro", "C. Pattimura", "pentol"};
     public String[] jawabanD = {"D. Imam Bonjol", "D. R.A Kartini", "D. Ir. Soekarno", "D. Soeharto", "D. Dewi Sartika",
         "D. Imam Bonjol", "D. KI Hajar Dewantoro", "D. Soeharto", "D. Cut Nyak Meutia", "D. Fatmawati",
         "D. Tuanku Imam Bonjol", "D. Ir. Soekarno", "D. Abdul Muis", "D. Dewi Sartika", "D. Sultan Hamengkubuwono",
-        "D. I Gusti Mangunkusumo","D. KI Hajar Dewantoro", "D. Abdul Muis","D. Achmad Soebardjo", "D. Ir. Soekarno"};
+        "D. I Gusti Mangunkusumo", "D. KI Hajar Dewantoro", "D. Abdul Muis", "D. Achmad Soebardjo", "D. Ir. Soekarno", "nyaman"};
     //---------------------------------------------------------------
     // urutan jawaban per indeksSoal -->       
     //    soal ke:                0    1     2     3     4
     //                            a ,  b  ,  a  ,  c  ,  d
     //---------------------------------------------------------------
     public boolean[] statusA = {false, false, false, false, true, false, false, false, true, false,
-                                true, false, false, false, false, true,false, true, false, false};
+        true, false, false, false, false, true, false, true, false, false, false};
     public boolean[] statusB = {true, true, false, false, false, true, false, false, false, true,
-                                false, false, true, false, true, false,true, false, false, false};
+        false, false, true, false, true, false, true, false, false, false, false};
     public boolean[] statusC = {false, false, true, true, false, false, true, true, false, false,
-                                false, true, false, true, false, false, false, false, false, true};
+        false, true, false, true, false, false, false, false, false, true, false};
     public boolean[] statusD = {false, false, false, false, false, false, false, false, false, false,
-                                false, false, false, false, false, false, false, false, true, false};
+        false, false, false, false, false, false, false, false, true, false, true};
     //----------------------------------------------------------------
     // end of deklarasi soal dan jawaban
     //----------------------------------------------------------------
@@ -92,10 +99,14 @@ public class MulaiGame extends javax.swing.JFrame {
     //-- inisialisasi permainan
     public MulaiGame() {
         initComponents();
-        indeksSoal = 0; //soal awal
+        shuffleArray(solutionArray);
+        for (int i = 0; i < solutionArray.length ; i++) {
+            System.out.println(solutionArray[i] + " ");
+            cekIndex = solutionArray[0];
+        }
         skorCounter.setText(String.format("%d", nilai)); //cetak skor awal
         listJawaban = new JButton[]{a, b, c, d};
-        daftarTulisanJawaban(indeksSoal);
+        daftarTulisanJawaban(cekIndex);
         setLocationRelativeTo(null); //otomatis di tengah
         timingnya();
 
@@ -122,7 +133,7 @@ public class MulaiGame extends javax.swing.JFrame {
             //dan skor akan berubah jika benar atau tetap jika salah (lihat cekBenarkah)
             if (waktu == 0 || a.isSelected() || b.isSelected() || c.isSelected() || d.isSelected()) {
                 skorCounter.setText(String.format("%d", nilai)); // cetak skor
-                //dibawah ini kondisi jika level sudah max (level 15)
+                //dibawah ini kondisi jika level sudah max (level 20)
                 if (level == 20 && waktu == 0 || level == 20 && a.isSelected() || level == 20 && b.isSelected() || level == 20 && c.isSelected() || level == 20 && d.isSelected()) {
                     a.setSelected(false);
                     b.setSelected(false);
@@ -140,10 +151,12 @@ public class MulaiGame extends javax.swing.JFrame {
                     b.setSelected(false);
                     c.setSelected(false);
                     d.setSelected(false);
-                    waktu = 20;
+                    waktu = 3;
                     level++;
-                    indeksSoal++;
-                    daftarTulisanJawaban(indeksSoal);
+                    counRandom++;
+                    cekIndex = solutionArray[counRandom-1];
+                    daftarTulisanJawaban(cekIndex-1);
+                    System.out.println(cekIndex-1 + " Masuk indeks");
                     skorCounter.setText(String.format("%d", nilai));
                     timerCounter.setText(String.format("%d", waktu));
                     levelCounter.setText(String.format("%d", level));
@@ -163,9 +176,49 @@ public class MulaiGame extends javax.swing.JFrame {
     private void timingnyaMainLagi() {
         timer.start();
     }
+
     //-- ------------------------------------------------------
     //memasukkan jawaban2 ke soal sesuai indeksSoal:
+//    public int getAngkaRandom() {
+//        int min = 0;
+//        int result, FixResult = 0;
+//        boolean cek = false;
+//        int max = persoalan.length;
+//        Random random = new Random();
+//        result = min + random.nextInt(max);
+//        System.out.println("di indexs: " + result);
+//        return result;
+//    }
+    static void shuffleArray(int[] ar) {
+        // If running on Java 6 or older, use `new Random()` on RHS here
+        Random rnd = ThreadLocalRandom.current();
+        for (int i = ar.length - 1; i > 0; i--) {
+            int index = rnd.nextInt(i + 1);
+            // Simple swap
+            int a = ar[index];
+            ar[index] = ar[i];
+            ar[i] = a;
+        }
+    }
 
+//    public int runRandom() {
+//        int get;
+//        int[] tempArray = new int[counRandom];
+//        get = getAngkaRandom();
+//        for (int i = 0; i < tempArray.length; i++) {
+//            if (tempArray == null) {
+//                tempArray[i] = get;
+//            } else {
+//                if (tempArray[i] == get) {
+//                    get = getAngkaRandom();
+//                }
+//            }
+//        }
+//        for (int i = 0; i < tempArray.length; i++) {
+//            System.out.println(tempArray[i]);
+//        }
+//        return get;
+//    }
     private void daftarTulisanJawaban(int indeksSoal) {
         tempatSoal.setIcon(new ImageIcon(persoalan[indeksSoal]));
         listJawaban[0].setText(jawabanA[indeksSoal]);
@@ -177,7 +230,7 @@ public class MulaiGame extends javax.swing.JFrame {
     //-- -------------------------------------------------------
     //subrutin untuk cek jawaban di klik
     private void cekBenarkah(boolean tampungjawab, boolean[] status) {
-        if (tampungjawab == status[indeksSoal]) {
+        if (tampungjawab == status[cekIndex-1]) {
             nilai += waktu + 5;
         } else {
             nilai += 0; //nilai ndak berubah
