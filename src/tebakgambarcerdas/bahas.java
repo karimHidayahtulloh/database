@@ -31,54 +31,60 @@ public class bahas extends javax.swing.JFrame {
     //-- -----------------------------------------------------------
     //-- ----           deklarasi soal dan jawaban              ----
     //-- -----------------------------------------------------------
-    public String[] persoalan = {"src/tebakgambarcerdas/ui/v1.jpg",
-        "src/tebakgambarcerdas/ui/v2.jpg",
-        "src/tebakgambarcerdas/ui/v3.jpg",
-        "src/tebakgambarcerdas/ui/v4.jpg",
-        "src/tebakgambarcerdas/ui/v5.jpg",
-        "src/tebakgambarcerdas/ui/v6.jpg",
-        "src/tebakgambarcerdas/ui/v7.jpg",
-        "src/tebakgambarcerdas/ui/v8.jpg",
-        "src/tebakgambarcerdas/ui/v9.jpg",
-        "src/tebakgambarcerdas/ui/v10.jpg",
-        "src/tebakgambarcerdas/ui/v11.jpg",
-        "src/tebakgambarcerdas/ui/v12.jpg",
-        "src/tebakgambarcerdas/ui/v13.jpg",
-        "src/tebakgambarcerdas/ui/v14.jpg",
-        "src/tebakgambarcerdas/ui/v15.jpg",
-        "src/tebakgambarcerdas/ui/v16.jpg",
-        "src/tebakgambarcerdas/ui/v17.jpg",
-        "src/tebakgambarcerdas/ui/v18.jpg",
-        "src/tebakgambarcerdas/ui/v19.jpg",
-        "src/tebakgambarcerdas/ui/v20.jpg"};
+    public String[] persoalan
+            = {"src/review/v1.jpg",
+                "src/review/v2.jpg",
+                "src/review/v3.jpg",
+                "src/review/v4.jpg",
+                "src/review/v5.jpg",
+                "src/review/v6.jpg",
+                "src/review/v7.jpg",
+                "src/review/v8.jpg",
+                "src/review/v9.jpg",
+                "src/review/v10.jpg",
+                "src/review/v11.jpg",
+                "src/review/v12.jpg",
+                "src/review/v13.jpg",
+                "src/review/v14.jpg",
+                "src/review/v15.jpg",
+                "src/review/v16.jpg",
+                "src/review/v17.jpg",
+                "src/review/v18.jpg",
+                "src/review/v19.jpg",
+                "src/review/v20.jpg",
+                "src/review/v21.jpg",
+                "src/review/v22.jpg",
+                "src/review/v23.jpg",
+                "src/review/v24.jpg",
+                "src/review/v25.jpg",
+                "src/review/v26.jpg",
+                "src/review/v27.jpg",
+                "src/review/v28.jpg",
+                "src/review/v29.jpg",
+                "src/review/v30.jpg"};
     public String[] jawaban = {
         "", "", "", "", "",
         "", "", "", "", "",
         "", "", "", "", "",
-        "", "", "", "", "", //        "LANJUT", "LANJUT", 
-    //        "LANJUT", "LANJUT", "LANJUT",
-    //        "LANJUT", "LANJUT", "LANJUT", "LANJUT", "LANJUT", 
-    //        "LANJUT", "LANJUT", "LANJUT", "LANJUT", "LANJUT",
-    //        "LANJUT", "LANJUT", "LANJUT", "LANJUT", "LANJUT",
-    };
+        "", "", "", "", "",
+        "", "", "", "", "",
+        "", "", "", "", ""};
     public boolean[] statusA = {
-        true, true,
-        true, true, true,
         true, true, true, true, true,
         true, true, true, true, true,
-        true, true, true, true, true,};
+        true, true, true, true, true,
+        true, true, true, true, true,
+        true, true, true, true, true,
+        true, true, true, true, true};
 
     public bahas() {
         this.jawaban = new String[]{
             "", "", "", "", "",
             "", "", "", "", "",
             "", "", "", "", "",
-            "", "", "", "", "", //            "LANJUT", "LANJUT", 
-        //            "LANJUT", "LANJUT", "LANJUT",
-        //            "LANJUT", "LANJUT", "LANJUT", "LANJUT", "LANJUT",
-        //            "LANJUT", "LANJUT", "LANJUT", "LANJUT", "LANJUT",
-        //            "LANJUT", "LANJUT", "LANJUT", "LANJUT", "LANJUT",
-        };
+            "", "", "", "", "",
+            "", "", "", "", "",
+            "", "", "", "", ""};
         initComponents();
         indeksSoal = 0; //soal awal
         listJawaban = new JButton[]{a};
@@ -99,7 +105,7 @@ public class bahas extends javax.swing.JFrame {
             waktu = (waktu - 1);
             if (waktu == 0 || a.isSelected()) {
 
-                if (level == 20 && waktu == 0 || level == 20 && a.isSelected()) {
+                if (level == 30 && waktu == 0 || level == 30 && a.isSelected()) {
                     a.setSelected(false);
                     try {
                         masukkanSkor(); // mestinya ini aja
@@ -111,7 +117,7 @@ public class bahas extends javax.swing.JFrame {
 //                    b.setSelected(false);
 //                    c.setSelected(false);
 //                    d.setSelected(false);
-                    waktu = 20;
+                    waktu = 30;
                     level++;
                     indeksSoal++;
                     daftarTulisanJawaban(indeksSoal);
@@ -150,36 +156,6 @@ public class bahas extends javax.swing.JFrame {
         new Main().setVisible(true);
     }
 
-    // tulis nilai di File text seperti txt
-//    public void tulisNilai() {
-//        File scoreFile = new File("topskor.skor"); //membuat file baru
-//        if (!scoreFile.exists()) { // jika tidak ada file di direktori project, maka akan otomatis dibuat
-//            try {
-//                scoreFile.createNewFile();
-//            } catch (Exception e) {
-//            }
-//        }
-//        BufferedWriter writer = null;
-//        try {
-//            writer = new BufferedWriter(new FileWriter(scoreFile, true));
-//            if (nilai < 10) {
-//                writer.write(nama + " 0" + nilai);
-//                writer.newLine();
-//            } else {
-//                writer.write(nama + " " + nilai);
-//                writer.newLine();
-//            }
-//        } catch (Exception e) {
-//        } finally {
-//            try {
-//                if (writer != null) {
-//                    writer.close();
-//                }
-//            } catch (Exception e) {
-//            }
-//        }
-//    }
-//
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -233,7 +209,6 @@ public class bahas extends javax.swing.JFrame {
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 60, 150, -1));
 
         tempatSoal.setBackground(new java.awt.Color(0, 153, 204));
-        tempatSoal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tebakgambarcerdas/ui/v11.jpg"))); // NOI18N
         jPanel1.add(tempatSoal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 700));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 700));
@@ -243,7 +218,7 @@ public class bahas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 //-- ketika tombol Home ditekan --
     private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
-        timingnyaDiStop();
+//        timingnyaDiStop();
         int inginKeluar;// 0 = (YES) exit ke main menu , 1 = (NO)tidak jadi //default netbeansnya
         inginKeluar = JOptionPane.showConfirmDialog(this, "Anda yakin ingin mengakhiri Pembahasan / Materi?", "Konfirmasi Kembali", 0);
         if (inginKeluar == 0) //kalo bener mau keluar, skoring muncul (masukkanSkor)
@@ -265,14 +240,7 @@ public class bahas extends javax.swing.JFrame {
         //digunakan untuk tanda lanjut ke level berikutnya
         jawabanmu = true; //jawaban yg diklik diubah jadi boolean bernilai true
         cekBenarkah(jawabanmu, statusA);
-        // akan dibandingkan apakah yang kita jawab (jawabanmu) nilai nya sama dengan kunci
-//        Icon btna = this.a.getSelectedIcon();
-//        if (btna.isEmpty()) {
-//            JOptionPane.showMessageDialog(this, "nama tidak boleh kosong", "CAUTION", JOptionPane.INFORMATION_MESSAGE);
-//            this.dispose();
-//    }else { JOptionPane.showMessageDialog(this, "Selamat Datang di Game Save Indonesia", "CAUTION", JOptionPane.INFORMATION_MESSAGE); 
-//        new Main().setVisible(true); ;}
-//    } 
+
     }//GEN-LAST:event_aActionPerformed
 
 ///-- ketika opsi C ditekan --    

@@ -37,57 +37,98 @@ public class MulaiGame extends javax.swing.JFrame {
     //-- -----------------------------------------------------------
     //-- ----           deklarasi soal dan jawaban              ----
     //-- -----------------------------------------------------------
-    public String[] persoalan = {"src/tebakgambarcerdas/ui/1.jpg",
-        "src/tebakgambarcerdas/ui/2.jpg",
-        "src/tebakgambarcerdas/ui/3.jpg",
-        "src/tebakgambarcerdas/ui/4.jpg",
-        "src/tebakgambarcerdas/ui/5.jpg",
-        "src/tebakgambarcerdas/ui/6.jpg",
-        "src/tebakgambarcerdas/ui/7.jpg",
-        "src/tebakgambarcerdas/ui/8.jpg",
-        "src/tebakgambarcerdas/ui/9.jpg",
-        "src/tebakgambarcerdas/ui/10.jpg",
-        "src/tebakgambarcerdas/ui/11.jpg",
-        "src/tebakgambarcerdas/ui/12.jpg",
-        "src/tebakgambarcerdas/ui/13.jpg",
-        "src/tebakgambarcerdas/ui/14.jpg",
-        "src/tebakgambarcerdas/ui/15.jpg",
-        "src/tebakgambarcerdas/ui/16.jpg",
-        "src/tebakgambarcerdas/ui/17.jpg",
-        "src/tebakgambarcerdas/ui/18.jpg",
-        "src/tebakgambarcerdas/ui/19.jpg",
-        "src/tebakgambarcerdas/ui/20.jpg",
-        "src/tebakgambarcerdas/ui/DSC_0308.jpg"};
+    public String[] persoalan = {"src/tanya/1.jpg",
+        "src/tanya/2.jpg",
+        "src/tanya/3.jpg",
+        "src/tanya/4.jpg",
+        "src/tanya/5.jpg",
+        "src/tanya/6.jpg",
+        "src/tanya/7.jpg",
+        "src/tanya/8.jpg",
+        "src/tanya/9.jpg",
+        "src/tanya/10.jpg",
+        "src/tanya/11.jpg",
+        "src/tanya/12.jpg",
+        "src/tanya/13.jpg",
+        "src/tanya/14.jpg",
+        "src/tanya/15.jpg",
+        "src/tanya/16.jpg",
+        "src/tanya/17.jpg",
+        "src/tanya/18.jpg",
+        "src/tanya/19.jpg",
+        "src/tanya/20.jpg",
+        "src/tanya/21.jpg",
+        "src/tanya/22.jpg",
+        "src/tanya/23.jpg",
+        "src/tanya/24.jpg",
+        "src/tanya/25.jpg",
+        "src/tanya/26.jpg",
+        "src/tanya/27.jpg",
+        "src/tanya/28.jpg",
+        "src/tanya/29.jpg",
+        "src/tanya/30.jpg"};
 
-    public String[] jawabanA = {"A. Cut Nyak Dhien", "A. Soeharto", "A. R. Dewi Sartika", "A. H.O.S. Cokroaminoto ", "A. Fatmawati",
-        "A. Jendral Soedirman", "A. R. A. Kartini", "A. Sutan Syahrir", "A. R. Dewi Sartika", "A. Pattimura",
-        "A. Moh. Yamin", "A. Pattimura", "A. Ir. Soekarno", "A. Pangeran Antasari", "A. Sultan Ali Mughayat Syah",
-        "A. I Gusti Ngurah Rai", "A. Pattimura", "A. Teuku Umar", "A. Ir. Soekarno", "A. Sutan Syahrir", "tahu"};
-    public String[] jawabanB = {"B. R.A Kartini", "B. Ir. Soekarno", "B. R.A Kartini", "B. Abdul Muis", "B. Cut Nyak Meutia",
-        "B. Bung Tomo", "B. Cut Nyak Dhien", "B. Tuanku Imam Bonjol", "B. Dewi Ratna", "B. Tuanku Imam Bonjol",
-        "B. Pangeran Diponegoro", "B. Pangeran Diponegoro", "B. Jendral Soedirman", "B. Dewi Ratna", "B.  Sultan  Hasanuddin",
-        "B. I Gusti Bagus Saputra", "B. Sultan Iskandar Muda", "B. Jendral Soedirman", "B. Jendral Soedirman", "B. Jendral Soedirman", "tempe"};
-    public String[] jawabanC = {"C. Fatmawati", "C. Drs. Moh. Hatta", "C. Cut Nyak Dhien", "C. KI Hajar Dewantoro", "C. Cut Nyak Dhien",
-        "C. Drs. Moh. Hatta", "C. Cut Nyak Meutia ", "C. Drs. Moh. Hatta", "C. R. A. Kartini", "C. Moh. Yamin",
-        "C. Pattimura", "C. Pangeran Antasari", "C. Sultan Hamengkubuwono", "C. Pangeran Diponegoro", "C. Ir. Soekarno",
-        "C. Gusti Ngurah Agung", "C. Drs. Moh. Hatta", "C. Sultan Hamengkubuwono", "C. Pangeran Diponegoro", "C. Pattimura", "pentol"};
-    public String[] jawabanD = {"D. Imam Bonjol", "D. R.A Kartini", "D. Ir. Soekarno", "D. Soeharto", "D. Dewi Sartika",
-        "D. Imam Bonjol", "D. KI Hajar Dewantoro", "D. Soeharto", "D. Cut Nyak Meutia", "D. Fatmawati",
-        "D. Tuanku Imam Bonjol", "D. Ir. Soekarno", "D. Abdul Muis", "D. Dewi Sartika", "D. Sultan Hamengkubuwono",
-        "D. I Gusti Mangunkusumo", "D. KI Hajar Dewantoro", "D. Abdul Muis", "D. Achmad Soebardjo", "D. Ir. Soekarno", "nyaman"};
+    public String[] jawabanA
+            = {"A. Cut Nyak Dhien", "A. Soeharto", "A. R. Dewi Sartika", "A. H.O.S. Cokroaminoto ", "A. Fatmawati",
+                "A. Jendral Soedirman", "A. R. A. Kartini", "A. Sutan Syahrir", "A. R. Dewi Sartika", "A. Pattimura",
+                "A. Moh. Yamin", "A. Pattimura", "A. Ir. Soekarno", "A. Pangeran Antasari", "A. Sultan Ali Mughayat Syah",
+                "A. I Gusti Ngurah Rai", "A. Pattimura", "A. Teuku Umar", "A. Ir. Soekarno", "A. Sutan Syahrir",
+                "A. R.A KARTINI", "A. HASYIM ASY’ARI", "A. HASYIM ASY’ARI", "A. AHMAD DAHLAN", "A. MOHAMMAD HOESNI THAMRIN",
+                "A. HASYIM ASY’ARI", "A. AHMAD DAHLAN", "A. KH. MAS MANSYUR", "A. SULTAN MAHMUD BADARUDDIN II", "A. MOHAMMAD HOESNI THAMRIN"};
+    public String[] jawabanB
+            = {"B. R.A Kartini", "B. Ir. Soekarno", "B. R.A Kartini", "B. Abdul Muis", "B. Cut Nyak Meutia",
+                "B. Bung Tomo", "B. Cut Nyak Dhien", "B. Tuanku Imam Bonjol", "B. Dewi Ratna", "B. Tuanku Imam Bonjol",
+                "B. Pangeran Diponegoro", "B. Pangeran Diponegoro", "B. Jendral Soedirman", "B. Dewi Ratna", "B.  Sultan  Hasanuddin",
+                "B. I Gusti Bagus Saputra", "B. Sultan Iskandar Muda", "B. Jendral Soedirman", "B. Jendral Soedirman", "B. Jendral Soedirman",
+                "B. MARIA WALANDA MARAMIS", "B. MOHAMMAD HOESNI THAMRIN", "B. KH. MAS MANSYUR", "B. HOS COKROAMINOTO", "B. KH. MAS MANSYUR",
+                "B. AHMAD DAHLAN", "B. AGUS SALIM", "B. DR. SOEPOMO", "B. MARIA WALANDA MARAMIS", "B. MARIA WALANDA MARAMIS"};
+    public String[] jawabanC
+            = {"C. Fatmawati", "C. Drs. Moh. Hatta", "C. Cut Nyak Dhien", "C. KI Hajar Dewantoro", "C. Cut Nyak Dhien",
+                "C. Drs. Moh. Hatta", "C. Cut Nyak Meutia ", "C. Drs. Moh. Hatta", "C. R. A. Kartini", "C. Moh. Yamin",
+                "C. Pattimura", "C. Pangeran Antasari", "C. Sultan Hamengkubuwono", "C. Pangeran Diponegoro", "C. Ir. Soekarno",
+                "C. Gusti Ngurah Agung", "C. Drs. Moh. Hatta", "C. Sultan Hamengkubuwono", "C. Pangeran Diponegoro", "C. Pattimura",
+                "C. DEWI SARTIKA", "C. KH. MAS MANSYUR", "C. AHMAD DAHLAN", "C. MOHAMMAD HOESNI THAMRIN", "C. AHMAD DAHLAN",
+                "C. KH. MAS MANSYUR", "C. MOHAMMAD HOESNI THAMRIN", "C. AGUS SALIM", "C. MOHAMMAD HOESNI THAMRIN", "A. SULTAN MAHMUD BADARUDDIN II"};
+    public String[] jawabanD
+            = {"D. Imam Bonjol", "D. R.A Kartini", "D. Ir. Soekarno", "D. Soeharto", "D. Dewi Sartika",
+                "D. Imam Bonjol", "D. KI Hajar Dewantoro", "D. Soeharto", "D. Cut Nyak Meutia", "D. Fatmawati",
+                "D. Tuanku Imam Bonjol", "D. Ir. Soekarno", "D. Abdul Muis", "D. Dewi Sartika", "D. Sultan Hamengkubuwono",
+                "D. I Gusti Mangunkusumo", "D. KI Hajar Dewantoro", "D. Abdul Muis", "D. Achmad Soebardjo", "D. Ir. Soekarno",
+                "D. FATMAWATI", "D. AHMAD DAHLAN", "D. KH. MAS MANSYUR", "D. HASYIM ASY’ARI", "D. DR. SOEPOMO",
+                "D. DR. SOEPOMO", "D. DEWI SARTIKA", "D. MOHAMMAD HOESNI THAMRIN", "D. KH. MAS MANSYUR", "D. DR. MOH SALEH"};
     //---------------------------------------------------------------
     // urutan jawaban per indeksSoal -->       
     //    soal ke:                0    1     2     3     4
     //                            a ,  b  ,  a  ,  c  ,  d
     //---------------------------------------------------------------
-    public boolean[] statusA = {false, false, false, false, true, false, false, false, true, false,
-        true, false, false, false, false, true, false, true, false, false, false};
-    public boolean[] statusB = {true, true, false, false, false, true, false, false, false, true,
-        false, false, true, false, true, false, true, false, false, false, false};
-    public boolean[] statusC = {false, false, true, true, false, false, true, true, false, false,
-        false, true, false, true, false, false, false, false, false, true, false};
-    public boolean[] statusD = {false, false, false, false, false, false, false, false, false, false,
-        false, false, false, false, false, false, false, false, true, false, true};
+    public boolean[] statusA
+            = {false, false, false, false, true,
+                false, false, false, true, false,
+                true, false, false, false, false,
+                true, false, true, false, false,
+                false, false, true, false, false,
+                false, false, false, true};
+    public boolean[] statusB
+            = {true, true, false, false, false,
+                true, false, false, false, true,
+                false, false, true, false, true,
+                false, true, false, false, false,
+                true, false, false, true, false,
+                false, true, false, false};
+    public boolean[] statusC
+            = {false, false, true, true, false,
+                false, true, true, false, false,
+                false, true, false, true, false,
+                false, false, false, false, true,
+                false, false, false, false, false,
+                true, false, false, false};
+    public boolean[] statusD
+            = {false, false, false, false, false,
+                false, false, false, false, false,
+                false, false, false, false, false,
+                false, false, false, true, false,
+                false, true, false, false, true,
+                false, false, true, false};
     //----------------------------------------------------------------
     // end of deklarasi soal dan jawaban
     //----------------------------------------------------------------
@@ -100,7 +141,7 @@ public class MulaiGame extends javax.swing.JFrame {
     public MulaiGame() {
         initComponents();
         shuffleArray(solutionArray);
-        for (int i = 0; i < solutionArray.length ; i++) {
+        for (int i = 0; i < solutionArray.length; i++) {
             System.out.println(solutionArray[i] + " ");
             cekIndex = solutionArray[0];
         }
@@ -154,9 +195,9 @@ public class MulaiGame extends javax.swing.JFrame {
                     waktu = 3;
                     level++;
                     counRandom++;
-                    cekIndex = solutionArray[counRandom-1];
-                    daftarTulisanJawaban(cekIndex-1);
-                    System.out.println(cekIndex-1 + " Masuk indeks");
+                    cekIndex = solutionArray[counRandom - 1];
+                    daftarTulisanJawaban(cekIndex - 1);
+                    System.out.println(cekIndex - 1 + " Masuk indeks");
                     skorCounter.setText(String.format("%d", nilai));
                     timerCounter.setText(String.format("%d", waktu));
                     levelCounter.setText(String.format("%d", level));
@@ -230,7 +271,7 @@ public class MulaiGame extends javax.swing.JFrame {
     //-- -------------------------------------------------------
     //subrutin untuk cek jawaban di klik
     private void cekBenarkah(boolean tampungjawab, boolean[] status) {
-        if (tampungjawab == status[cekIndex-1]) {
+        if (tampungjawab == status[cekIndex - 1]) {
             nilai += waktu + 5;
         } else {
             nilai += 0; //nilai ndak berubah
@@ -330,7 +371,7 @@ public class MulaiGame extends javax.swing.JFrame {
                 aActionPerformed(evt);
             }
         });
-        jPanel2.add(a, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 440, 290, 40));
+        jPanel2.add(a, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 440, 340, 40));
 
         b.setBackground(new java.awt.Color(255, 255, 255));
         b.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
@@ -340,7 +381,7 @@ public class MulaiGame extends javax.swing.JFrame {
                 bActionPerformed(evt);
             }
         });
-        jPanel2.add(b, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 440, 290, 40));
+        jPanel2.add(b, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 440, 350, 40));
 
         c.setBackground(new java.awt.Color(255, 255, 255));
         c.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
@@ -350,7 +391,7 @@ public class MulaiGame extends javax.swing.JFrame {
                 cActionPerformed(evt);
             }
         });
-        jPanel2.add(c, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 500, 290, 40));
+        jPanel2.add(c, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 500, 340, 40));
 
         d.setBackground(new java.awt.Color(255, 255, 255));
         d.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
@@ -360,7 +401,7 @@ public class MulaiGame extends javax.swing.JFrame {
                 dActionPerformed(evt);
             }
         });
-        jPanel2.add(d, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 500, 290, 40));
+        jPanel2.add(d, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 500, 350, 40));
 
         timerCounter.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         timerCounter.setForeground(new java.awt.Color(255, 255, 255));

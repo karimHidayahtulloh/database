@@ -32,7 +32,6 @@ public class skor extends javax.swing.JFrame {
         tabelSkor = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         btnKembali = new javax.swing.JButton();
-        resetSkor = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -110,15 +109,7 @@ public class skor extends javax.swing.JFrame {
                 btnKembaliActionPerformed(evt);
             }
         });
-        jPanel1.add(btnKembali, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 390, -1, -1));
-
-        resetSkor.setText("MATERI");
-        resetSkor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                resetSkorActionPerformed(evt);
-            }
-        });
-        jPanel1.add(resetSkor, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 390, -1, -1));
+        jPanel1.add(btnKembali, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 380, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 160, 480, 500));
 
@@ -134,24 +125,6 @@ public class skor extends javax.swing.JFrame {
         new Main().setVisible(true);
     }//GEN-LAST:event_btnKembaliActionPerformed
 
-    private void resetSkorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetSkorActionPerformed
-        this.dispose();
-        new bahas().setVisible(true);
-//        scoreFile.delete();
-//        try {
-//            scoreFile.delete();
-//        } catch (Exception e) {
-//            System.out.println("file sudah dihapus");
-//        }
-
-        for (int i = 0; i < tabelSkor.getRowCount(); i++) {
-            for (int j = 0; j < tabelSkor.getColumnCount(); j++) {
-                tabelSkor.setValueAt("", i, j);
-            }
-        }
-
-    }//GEN-LAST:event_resetSkorActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnKembali;
@@ -160,7 +133,6 @@ public class skor extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JButton resetSkor;
     private javax.swing.JTable tabelSkor;
     // End of variables declaration//GEN-END:variables
     public void ambilNilai(Stack x) throws FileNotFoundException, IOException {//disuruh nambai throw sama netbeans

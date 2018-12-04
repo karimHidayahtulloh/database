@@ -78,6 +78,7 @@ public class Main extends javax.swing.JFrame {
         tentang = new javax.swing.JButton();
         skor = new javax.swing.JButton();
         pengaturan = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         bg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -131,6 +132,14 @@ public class Main extends javax.swing.JFrame {
         });
         getContentPane().add(pengaturan, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 400, 250, 90));
 
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 530, -1, -1));
+
         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tebakgambarcerdas/ui/menu.jpg"))); // NOI18N
         getContentPane().add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 700));
 
@@ -179,6 +188,11 @@ public class Main extends javax.swing.JFrame {
         statusKlik++;
     }//GEN-LAST:event_pengaturanActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       this.dispose();//window main menunya ke minimize
+        new bahas().setVisible(true);// tampilan mulaiGame muncul
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -213,6 +227,7 @@ public class Main extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bg;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton keluar;
     private javax.swing.JButton main;
     private javax.swing.JButton pengaturan;
