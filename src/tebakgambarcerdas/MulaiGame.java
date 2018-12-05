@@ -282,20 +282,24 @@ public class MulaiGame extends javax.swing.JFrame {
     //saat level sudah selesai atau keluar paksa dari game:
     private void masukkanSkor() throws IOException {
         JOptionPane.showMessageDialog(this, "Permainan selesai");
-        do {
-            JOptionPane.showMessageDialog(this, "Masukkan Nama Anda");
-            nama = JOptionPane.showInputDialog(this, "Nama Anda ");
-        } while (nama.equals(""));
-        JOptionPane.showMessageDialog(this, "Skor Anda = " + nilai);
+        try {
+            do {
+                nama = JOptionPane.showInputDialog(this, "Pesan woeeeeeeeeeeeey", null, JOptionPane.OK_OPTION);
+            } while (nama.equals(""));
+            JOptionPane.showMessageDialog(this, "Skor Anda = " + nilai);
 //        try {
 //            model.insert(nama, nilai);
 //        } 
 //        catch (SQLException | ParseException ex) {
 //            Logger.getLogger(MulaiGame.class.getName()).log(Level.SEVERE, null, ex);
 //        }
-        tulisNilai();
-        this.dispose();
-        new bahas().setVisible(true);
+            tulisNilai();
+            this.dispose();
+            new bahas().setVisible(true);
+        } catch (Exception rim) {
+           JOptionPane.showMessageDialog(this, "Silahkan Masukkan nama jika akan keluar permainan");
+        }
+
     }
 
     // tulis nilai di File text seperti txt

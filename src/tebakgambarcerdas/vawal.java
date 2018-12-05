@@ -3,9 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package tebakgambarcerdas;
 
 import javax.swing.JButton;
+import tebakgambarcerdas.Main;
 
 /**
  *

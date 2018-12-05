@@ -13,6 +13,7 @@ import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.swing.JOptionPane;
+import tebakgambarcerdas.Main;
 
 /**
  *
@@ -20,18 +21,30 @@ import javax.swing.JOptionPane;
  */
 public class pengaturan extends javax.swing.JFrame {
 
-    public static int statusKlik = pengaturan.statusKlik;
-
-    public pengaturan() {
-        initComponents();
-        playing();
-        if (statusKlik == 1) {
-            Controller(true);
-        }
-    }
-
+    public static String getStatusKlik = Main.statusKlik;
+    pengaturan vNa_Kalak;
+    String ambil = getStatusKlik;
     Clip karim;
     AudioInputStream ecin;
+    public static int hitung=0;
+    Main is_V;
+    public pengaturan() {
+        initComponents();
+        is_V = new Main();
+        System.out.println(ambil);
+        if (ambil.equalsIgnoreCase("odik")) {
+            hidup();
+            hitung++;
+        }
+        if (hitung!=0) {
+            on.setVisible(false);
+        }
+
+    }
+
+    public pengaturan kalak() {
+        return vNa_Kalak;
+    }
 
     public void playing() {
         try {
@@ -46,9 +59,17 @@ public class pengaturan extends javax.swing.JFrame {
     public void Controller(boolean atur) {
         if (atur == true) {
             karim.loop(Clip.LOOP_CONTINUOUSLY);
-        } else if (atur == false) {
-            karim.stop();
         }
+    }
+
+    public void mati() {
+        karim.stop();
+    }
+
+    public void hidup() {
+        playing();
+        karim.loop(Clip.LOOP_CONTINUOUSLY);
+        karim.start();
     }
 
     public void klik(int musicx) {
@@ -117,20 +138,19 @@ public class pengaturan extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void onActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onActionPerformed
-        Controller(true);
-        off.setVisible(true);
-        on.setVisible(false);
+        hidup();
+
     }//GEN-LAST:event_onActionPerformed
 
     private void offActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_offActionPerformed
-        Controller(false);
-        on.setVisible(true);
-        off.setVisible(false);
+        mati();
+
     }//GEN-LAST:event_offActionPerformed
 
     private void keluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_keluarActionPerformed
-        this.dispose();//window main menunya ke minimize
-        new Main().setVisible(true);// tampilan mulaiGame muncul
+        is_V.setVisible(true);// tampilan mulaiGame muncul
+        this.setVisible(false);//window main menunya ke minimize
+
     }//GEN-LAST:event_keluarActionPerformed
 
     /**
